@@ -7,8 +7,8 @@ $ ->
     window.save_settings = ->
         card_settings = $('form').serializeArray()
         card_settings = {
-            n_hn_foc: card_settings[0].value
-            n_wws: card_settings[1].value
+            n_hn_foc: parseInt(card_settings[0].value)
+            n_wws: parseInt(card_settings[1].value)
             blacklist: card_settings[2..-1].map (d) -> d.name
         }
         basil.set("card_settings", card_settings)
@@ -34,7 +34,7 @@ $ ->
             hn_foc_cards = data.filter (d) ->
                 d.name not in card_settings.blacklist and d.type in ["hn", "foc"]
             hn_foc_cards = get_n_random(
-                hn_foc_cards.map (d) -> d.name,
+                hn_foc_cards.map((d) -> d.name),
                 card_settings.n_hn_foc)
             if Math.random() < 0.5
                 hn_foc_cards.push data.filter((d) ->
@@ -88,17 +88,23 @@ $ ->
     set_hn_foc = (current_game) ->
         i = current_game.hn_foc_index
         cards = current_game.hn_foc_cards
-        $("ul#show-hn-foc li:first")
-            .toggleClass("disabled", current_game.hn_foc_index == 0)
+        n = cards.length - 1
+        $("div#show-hn-foc button:first")
+            .toggleClass("disabled", i == 0)
         text = ""
-        if i == current_game.n_hn_foc
+        if i == n
             text = "#{cards[i]}"
         else
             text = "#{cards[i]} &rarr; #{cards[i + 1]}"
-        $("ul#show-hn-foc li:nth-child(2)")
+        $("div#show-hn-foc button:nth-child(2)")
+            .toggleClass("disabled", i == n)
             .html "<a href='#'>#{text}</a>"
-        $("ul#show-hn-foc li:last")
-            .toggleClass("disabled", current_game.hn_foc_index == current_game.n_hn_foc)
+        $("div#show-hn-foc button:last")
+            .toggleClass("disabled", i == n)
+        $("div#progress-hn-foc")
+            .css "width", "#{(i + 1) / (n + 1) * 100}%" 
+            .text "#{i + 1} / #{n + 1}" 
+        console.log $("div#progress-hn-foc")
 
     set_wws = (current_game) ->
 
@@ -121,5 +127,6 @@ $ ->
     $('input#n_wws').val card_settings.n_wws
     window.settings_cards(card_settings)
     $('button#new_game').click start_new_game
-    $("ul#show-hn-foc li:first").click hn_foc_previous
-    $("ul#show-hn-foc li:last").click hn_foc_next
+    $("div#show-hn-foc button:first").click hn_foc_previous
+    $("div#show-hn-foc button:nth-child(2)").click hn_foc_next
+    $("div#show-hn-foc button:last").click hn_foc_next
