@@ -19,6 +19,7 @@ $ ->
                 .enter()
                 .append "input"
                 .attr "type", "checkbox"
+                .attr "name", (d) -> d.name
                 .property "checked", (d) ->
                     d.name in card_settings.blacklist
                 .attr "data-label", (d) -> d.name
@@ -26,3 +27,4 @@ $ ->
             card.exit().remove()
 
             $('input[type="checkbox"]').checkbox()
+            $('input').change window.save_settings

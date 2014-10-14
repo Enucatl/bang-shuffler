@@ -13,15 +13,26 @@
         <h2>Partita in corso</h2>
         <div class="row">
             <h3><i>Mezzogiorno di fuoco</i> e <i>Per un pugno di carte</i></h3>
+            <div class="col-md-12">
+                <ul class="pagination" id="show-hn-foc">
+                    <li><a href="#">&laquo;</a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#">&raquo;</a></li>
+                </ul>
+            </div>
         </div>
         <div class="row">
             <h3><i>Wild west show</i></h3>
+            <div class="col-md-12" id="show-wws">
+            </div>
         </div>
         <div class="row">
             <h3><i>Greygory Deck</i></h3>
+            <div class="col-md-12" id="show-gd">
+            </div>
         </div>
         <div class="row">
-            <button type="button" class="btn btn-primary">
+            <button type="button" id="new_game" class="btn btn-primary">
                 nuova partita
             </button>
         </div>
@@ -30,11 +41,11 @@
         <h2>Impostazioni</h2>
         <div class="row">
             <div class="col-md-12">
-                <div class="form-horizontal" role="form">
+                <form class="form-horizontal" role="form">
                     <h3>Numero di carte delle espansioni (ultima carta esclusa)</h3>
                     <div class="form-group">
                         <div class="col-sm-1">
-                            <input class="form-control" id="n_hn_foc"
+                            <input class="form-control" name="n_hn_foc" id="n_hn_foc"
                             type="number" min=1 max=15 step=1>
                         </div>
                         <label for="n_hn_foc" class="col-sm-11
@@ -42,7 +53,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-sm-1">
-                            <input class="form-control" id="n_wws"
+                            <input class="form-control" name="n_wws" id="n_wws"
                             type="number" min=1 max=9 step=1>
                         </div>
                         <label for="n_wws" class="col-sm-11
@@ -51,7 +62,7 @@
                     <h3>Escludi carte</h3>
                     <div class="form-group" id="card-checkboxes">
                     </div>
-                </div>
+                </form>
             </div>
         </div>
         </div>
