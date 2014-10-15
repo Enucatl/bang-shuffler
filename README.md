@@ -10,6 +10,6 @@ The pain is now gone, thanks to the awesome
 Features
 --------
 
-* it works offline once the page is loaded
-* it permanently remembers the current game and your settings thanks to [HTML5 localStorage](http://www.w3schools.com/html/html5_webstorage.asp) and
+* it works offline
+* it permanently remembers the current game and your settings through [HTML5 localStorage](http://www.w3schools.com/html/html5_webstorage.asp) and
  [basil.js](http://wisembly.github.io/basil.js/)
