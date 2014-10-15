@@ -93,7 +93,7 @@ $ ->
         $("div#show-hn-foc button:first")
             .toggleClass("disabled", i == 0)
         text = ""
-        if i == n
+        if i == n or i == 0
             text = "#{cards[i]}"
         else
             text = "#{cards[i]} &rarr; #{cards[i + 1]}"
