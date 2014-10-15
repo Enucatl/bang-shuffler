@@ -87,14 +87,16 @@ $ ->
         set_wws game 
 
     set_hn_foc = (current_game) ->
-        i = current_game.hn_foc_index
+        i = current_game.hn_foc_index - 1
         cards = current_game.hn_foc_cards
         n = cards.length - 1
         $("div#show-hn-foc button:first")
-            .toggleClass("disabled", i == 0)
+            .toggleClass("disabled", i < 0)
         text = ""
-        if i == n or i == 0
+        if i == n
             text = "#{cards[i]}"
+        else if i == -1
+            text = "&mdash; &rarr; #{cards[0]}"
         else
             text = "#{cards[i]} &rarr; #{cards[i + 1]}"
         $("div#show-hn-foc button:nth-child(2)")
@@ -107,12 +109,12 @@ $ ->
             .text "#{i + 1} / #{n + 1}" 
 
     set_wws = (current_game) ->
-        i = current_game.wws_index
+        i = current_game.wws_index - 1
         cards = current_game.wws_cards
         n = cards.length - 1
         $("div#show-wws button:first")
-            .toggleClass("disabled", i == 0)
-        text = "#{cards[i]}"
+            .toggleClass("disabled", i < 0)
+        text = if i >= 0 then "#{cards[i]}" else "&mdash;"
         $("div#show-wws button:nth-child(2)")
             .toggleClass("disabled", i == n)
             .html "<a href='#'>#{text}</a>"
