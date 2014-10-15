@@ -15,7 +15,7 @@ $ ->
 
     get_n_random = (array, n) ->
         array.sort -> 0.5 - Math.random()
-        array[0..n]
+        array[0..(n - 1)]
 
     setup_greygory_deck = ->
         d3.json "characters.json", (error, data) ->
@@ -25,7 +25,7 @@ $ ->
             basic_characters = data
                 .filter (d) -> d.type == "basic"
                 .map (d) -> d.name
-            $('div#greygory-deck').data("basic-characters", JSON.stringify(basic_characters))
+            $('#show-gd').data("basic-characters", JSON.stringify(basic_characters))
 
     start_new_game = ->
         card_settings = basil.get("card_settings")
@@ -47,14 +47,15 @@ $ ->
             wws_cards = data.filter (d) ->
                 d.name not in card_settings.blacklist and d.type == "wws"
             wws_cards = get_n_random(
-                wws_cards.map (d) -> d.name,
+                wws_cards.map((d) -> d.name),
                 card_settings.n_wws)
             wws_cards.push data.filter((d) ->
                 d.type == "wws-last")[0].name
             current_game.wws_cards = wws_cards
             current_game.wws_index = 0
             basil.set("current_game", current_game)
-            set_hn_foc(current_game)
+            set_hn_foc current_game 
+            set_wws current_game 
                                             
     hn_foc_previous = ->
         if $(this).hasClass "disabled"
@@ -104,11 +105,28 @@ $ ->
         $("div#progress-hn-foc")
             .css "width", "#{(i + 1) / (n + 1) * 100}%" 
             .text "#{i + 1} / #{n + 1}" 
-        console.log $("div#progress-hn-foc")
 
     set_wws = (current_game) ->
+        i = current_game.wws_index
+        cards = current_game.wws_cards
+        n = cards.length - 1
+        $("div#show-wws button:first")
+            .toggleClass("disabled", i == 0)
+        text = "#{cards[i]}"
+        $("div#show-wws button:nth-child(2)")
+            .toggleClass("disabled", i == n)
+            .html "<a href='#'>#{text}</a>"
+        $("div#show-wws button:last")
+            .toggleClass("disabled", i == n)
+        $("div#progress-wws")
+            .css "width", "#{(i + 1) / (n + 1) * 100}%" 
+            .text "#{i + 1} / #{n + 1}" 
 
-    
+    set_gd = ->
+        characters = JSON.parse($("#show-gd").data("basic-characters"))
+        chosen = get_n_random characters, 2 
+        $("#show-gd").html chosen.join " &#43; "
+
     card_settings = basil.get("card_settings")
     if not card_settings?
         card_settings = {
@@ -123,10 +141,19 @@ $ ->
         }
         basil.set("card_settings", card_settings)
 
+    if basil.get("current_game")?
+        set_hn_foc basil.get "current_game"
+        set_wws basil.get "current_game"
+
     $('input#n_hn_foc').val card_settings.n_hn_foc
     $('input#n_wws').val card_settings.n_wws
     window.settings_cards(card_settings)
+    setup_greygory_deck()
     $('button#new_game').click start_new_game
+    $('#show-gd').click set_gd
     $("div#show-hn-foc button:first").click hn_foc_previous
     $("div#show-hn-foc button:nth-child(2)").click hn_foc_next
     $("div#show-hn-foc button:last").click hn_foc_next
+    $("div#show-wws button:first").click wws_previous
+    $("div#show-wws button:nth-child(2)").click wws_next
+    $("div#show-wws button:last").click wws_next
