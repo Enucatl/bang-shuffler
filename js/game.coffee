@@ -3,6 +3,7 @@
 
 $ ->
     basil = new window.Basil()
+    Opentip.styles.dark.tipJoint = "top"
     Opentip.defaultStyle = "dark"
     hn_foc_tooltip = new Opentip($("div#show-hn-foc button:nth-child(2)"),
         "Click to get the next card")
