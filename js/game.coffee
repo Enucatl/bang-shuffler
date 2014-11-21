@@ -3,13 +3,20 @@
 
 $ ->
     basil = new window.Basil()
+    Opentip.defaultStyle = "dark"
+    hn_foc_tooltip = new Opentip($("div#show-hn-foc button:nth-child(2)"),
+        "Click to get the next card")
+    wws_tooltip = new Opentip($("div#show-wws button:nth-child(2)"),
+        "Click to get the next card")
+    greygory_deck_tooltip = new Opentip($("#show-gd"),
+        "Click to get two characters")
 
     window.save_settings = ->
         card_settings = $('form').serializeArray()
         card_settings = {
             n_hn_foc: parseInt(card_settings[0].value)
             n_wws: parseInt(card_settings[1].value)
-            blacklist: card_settings[2..-1].map (d) -> d.name
+            blacklist: card_settings[2..-1]
         }
         basil.set("card_settings", card_settings)
 
@@ -24,7 +31,6 @@ $ ->
                 return
             basic_characters = data
                 .filter (d) -> d.type == "basic"
-                .map (d) -> d.name
             $('#show-gd').data("basic-characters", JSON.stringify(basic_characters))
 
     start_new_game = ->
@@ -34,7 +40,7 @@ $ ->
             hn_foc_cards = data.filter (d) ->
                 d.name not in card_settings.blacklist and d.type in ["hn", "foc"]
             hn_foc_cards = get_n_random(
-                hn_foc_cards.map((d) -> d.name),
+                hn_foc_cards,
                 card_settings.n_hn_foc)
             if Math.random() < 0.5
                 hn_foc_cards.push data.filter((d) ->
@@ -47,7 +53,7 @@ $ ->
             wws_cards = data.filter (d) ->
                 d.name not in card_settings.blacklist and d.type == "wws"
             wws_cards = get_n_random(
-                wws_cards.map((d) -> d.name),
+                wws_cards,
                 card_settings.n_wws)
             wws_cards.push data.filter((d) ->
                 d.type == "wws-last")[0].name
@@ -93,12 +99,21 @@ $ ->
         $("div#show-hn-foc button:first")
             .toggleClass("disabled", i < 0)
         text = ""
+        tooltip = ""
         if i == n
-            text = "#{cards[i]}"
+            text = "#{cards[i].name}"
+            tooltip = cards[i].description
         else if i == -1
-            text = "&mdash; &rarr; #{cards[0]}"
+            text = "&mdash; &rarr; #{cards[0].name}"
+            tooltip = cards[0].description
         else
-            text = "#{cards[i]} &rarr; #{cards[i + 1]}"
+            text = "#{cards[i].name} &rarr; #{cards[i + 1].name}"
+            tooltip = """
+            #{cards[i].name}: #{cards[i].description}
+            <br><br>
+            #{cards[i + 1].name}: #{cards[i + 1].description}
+            """
+        hn_foc_tooltip.setContent tooltip
         $("div#show-hn-foc button:nth-child(2)")
             .toggleClass("disabled", i == n)
             .html "<a href='#'>#{text}</a>"
@@ -114,7 +129,8 @@ $ ->
         n = cards.length - 1
         $("div#show-wws button:first")
             .toggleClass("disabled", i < 0)
-        text = if i >= 0 then "#{cards[i]}" else "&mdash;"
+        text = if i >= 0 then "#{cards[i].name}" else "&mdash;"
+        wws_tooltip.setContent(cards[i].description) unless i < 0
         $("div#show-wws button:nth-child(2)")
             .toggleClass("disabled", i == n)
             .html "<a href='#'>#{text}</a>"
@@ -127,7 +143,14 @@ $ ->
     set_gd = ->
         characters = JSON.parse($("#show-gd").data("basic-characters"))
         chosen = get_n_random characters, 2 
-        $("#show-gd").html chosen.join " &#43; "
+        greygory_deck_tooltip.setContent """
+        #{chosen[0].name}: #{chosen[0].description}
+        <br><br>
+        #{chosen[1].name}: #{chosen[1].description}
+        """
+        $("#show-gd").html((chosen
+            .map (d) -> d.name)
+            .join " &#43; ")
 
     card_settings = basil.get("card_settings")
     if not card_settings?
