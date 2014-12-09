@@ -131,7 +131,8 @@ $ ->
         $("div#show-wws button:first")
             .toggleClass("disabled", i < 0)
         text = if i >= 0 then "#{cards[i].name}" else "&mdash;"
-        wws_tooltip.setContent(cards[i].description) unless i < 0
+        tooltip = if i >= 0 then cards[i].description else ""
+        wws_tooltip.setContent(tooltip)
         $("div#show-wws button:nth-child(2)")
             .toggleClass("disabled", i == n)
             .html "<a href='#'>#{text}</a>"
