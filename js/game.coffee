@@ -168,6 +168,10 @@ $ ->
         }
         basil.set("card_settings", card_settings)
 
+    $('button#reset_basil').click ->
+        basil.remove("card_settings")
+        location.reload()
+
     if basil.get("current_game")?
         set_hn_foc basil.get "current_game"
         set_wws basil.get "current_game"
