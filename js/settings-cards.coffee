@@ -21,6 +21,7 @@ $ ->
                 .attr "type", "checkbox"
                 .attr "name", (d) -> d.name
                 .property "checked", (d) ->
+                    console.log d.name, "blacklisted: ", d.name in card_settings.blacklist
                     d.name in card_settings.blacklist
                 .attr "data-label", (d) -> d.name
 

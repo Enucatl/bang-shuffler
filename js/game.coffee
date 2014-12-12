@@ -11,6 +11,7 @@ $ ->
             n_wws: parseInt(card_settings[1].value)
             blacklist: card_settings[2..-1].map (d) -> d.name
         }
+        console.log "blacklist", card_settings.blacklist
         basil.set("card_settings", card_settings)
 
     get_n_random = (array, n) ->
