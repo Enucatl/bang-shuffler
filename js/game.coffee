@@ -17,9 +17,8 @@ $ ->
         card_settings = {
             n_hn_foc: parseInt(card_settings[0].value)
             n_wws: parseInt(card_settings[1].value)
-            blacklist: card_settings[2..-1]
+            blacklist: card_settings[2..-1].map (d) -> d.name
         }
-        console.log "blacklist", card_settings.blacklist
         basil.set("card_settings", card_settings)
 
     get_n_random = (array, n) ->
@@ -46,10 +45,10 @@ $ ->
                 card_settings.n_hn_foc)
             if Math.random() < 0.5
                 hn_foc_cards.push data.filter((d) ->
-                    d.type == "hn-last")[0].name
+                    d.type == "hn-last")[0]
             else
                 hn_foc_cards.push data.filter((d) ->
-                    d.type == "foc-last")[0].name
+                    d.type == "foc-last")[0]
             current_game.hn_foc_cards = hn_foc_cards
             current_game.hn_foc_index = 0
             wws_cards = data.filter (d) ->
@@ -58,7 +57,7 @@ $ ->
                 wws_cards,
                 card_settings.n_wws)
             wws_cards.push data.filter((d) ->
-                d.type == "wws-last")[0].name
+                d.type == "wws-last")[0]
             current_game.wws_cards = wws_cards
             current_game.wws_index = 0
             basil.set("current_game", current_game)
