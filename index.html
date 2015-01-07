@@ -1,75 +1,24 @@
-<!DOCTYPE html>
-<meta charset="utf-8">
-<head>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap-checkbox.css">
-    <link rel="stylesheet" href="css/opentip.css">
-    <link rel="stylesheet" href="css/overrides.css">
+---
+layout: default
+title: Bang Shuffler
+---
 
-</head>
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="btn-group" id="show-hn-foc">
-                    <button type=button class="btn btn-default"><a href="#">&laquo;</a></button>
-                    <button type=button class="btn btn-default"><a
-                            href="#">---</a></button>
-                    <button type=button class="btn btn-default"><a href="#">&raquo;</a></button>
-                </div>
-            </div>
-        </div>
-    <div class="row">
-        <h3><i>Wild west show</i></h3>
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="btn-group" id="show-wws">
-                    <button type=button class="btn btn-default"><a href="#">&laquo;</a></button>
-                    <button type=button class="btn btn-default"><a
-                            href="#">---</a></button>
-                    <button type=button class="btn btn-default"><a href="#">&raquo;</a></button>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3 col-xs-6">
-                <div class="progress">
-                    <div class="progress-bar" role="progressbar" id="progress-wws" style="width: 0%;">0</div>
-                </div>
-            </div>
-        </div>
+<div class="row">
+    <div class="col-xs-4" id="current_hn_foc"></div>
+    <div class="col-xs-4" id="upcoming_hn_foc"></div>
+    <div class="col-xs-4" id="current_wws"></div>
+</div>
+<div class="row">
+    <div class="col-xs-6">
+        <button type="button" id="new_game"
+            class="btn btn-primary btn-block">
+            nuova partita
+        </button>
     </div>
-    <div class="row">
-        <h3><i>Greygory Deck</i></h3>
-        <div class="row">
-            <div class="col-xs-12">
-                <button type="button" id="show-gd" class="btn
-                    btn-default">
-                    dammi i personaggi!
-                </button>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <h3></h3>
-        <div class="col-xs-12">
-            <div class="row">
-                <button type="button" id="new_game" class="btn btn-primary">
-                    nuova partita
-                </button>
-            </div>
-        </div>
+    <div class="col-xs-6">
+        <a class="btn btn-primary btn-block"
+            href="/settings.html">
+            impostazioni
+        </a>
     </div>
 </div>
-    </div>
-
-    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script src="//d3js.org/d3.v3.min.js"></script>
-    <script src="js/basil.min.js"></script>
-    <script src="js/opentip-jquery.min.js"></script>
-    <script src="js/bootstrap-checkbox.js"></script>
-    <script src="js/settings-cards.js"></script>
-    <script src="js/game.js"></script>
-</body>
