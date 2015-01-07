@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-checkbox.css">
+    <link rel="stylesheet" href="css/opentip.css">
+    <link rel="stylesheet" href="css/overrides.css">
+
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <form class="form-horizontal" role="form">
+                    <h3>Numero di carte delle espansioni (ultima carta esclusa)</h3>
+                    <div class="form-group">
+                        <div class="col-md-1 col-xs-2">
+                            <input class="form-control" name="n_hn_foc" id="n_hn_foc"
+                            type="number" min=1 max=15 step=1>
+                        </div>
+                        <label for="n_hn_foc" class="col-md-11 col-xs-10
+                            control-label"><i>Mezzogiorno di fuoco</i> e <i>Per un pugno di carte</i></label>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-1 col-xs-2">
+                            <input class="form-control" name="n_wws" id="n_wws"
+                            type="number" min=1 max=9 step=1>
+                        </div>
+                        <label for="n_wws" class="col-md-11 col-xs-10
+                            control-label"><i>Wild west show</i></label>
+                    </div>
+                    <h3>Escludi carte</h3>
+                    <div class="form-group" id="card-checkboxes"></div>
+                </form>
+                <div class="col-xs-12">
+                    <div class="row">
+                        <button type="button" id="reset_basil" class="btn btn-primary">
+                            impostazioni predefinite
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <p class="text-muted">
+                Fork me on 
+                <a
+                    href="https://github.com/Enucatl/bang-shuffler">github</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="//d3js.org/d3.v3.min.js"></script>
+    <script src="js/basil.min.js"></script>
+    <script src="js/opentip-jquery.min.js"></script>
+    <script src="js/bootstrap-checkbox.js"></script>
+    <script src="js/settings-cards.js"></script>
+    <script src="js/game.js"></script>
+</body>
