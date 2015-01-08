@@ -2,3 +2,21 @@
 /* text-align:right; */
     text-align:left;
 }
+
+.card {
+    border-style: solid;
+    border-width: thick;
+    border-radius: 20px;
+}
+
+.wws {
+    border-color: yellow;
+}
+
+.hn {
+    border-color: red;
+}
+
+.foc {
+    border-color: blue;
+}

@@ -70,32 +70,35 @@ $ ->
     set_hn_foc = (current_game) ->
         i = current_game.hn_foc_index - 1
         cards = current_game.hn_foc_cards
-        n = cards.length - 1
+        n = cards.length
         $("div#current_hn_foc")
-            .toggleClass("disabled", i < 0 or i == n)
-        text = ""
-        tooltip = ""
+            .toggleClass("disabled", i < 0)
+        #$("div#current_hn_foc")
+            #.toggleClass("hn", cards[i].type.indexOf("hn") > -1)
+        #$("div#current_hn_foc")
+            #.toggleClass("foc", cards[i].type.indexOf("foc") > -1)
+        $("div#upcoming_hn_foc")
+            .toggleClass("disabled", i == n - 1)
         if i == -1
-            text = "#{cards[i].name}"
-            tooltip = cards[i].description
-        else if i == n
-            text = "&mdash; &rarr; #{cards[0].name}"
-            tooltip = cards[0].description
-        else
-            text = "#{cards[i].name} &rarr; #{cards[i + 1].name}"
-            tooltip = """
-            #{cards[i].name}: #{cards[i].description}
-            <br><br>
-            #{cards[i + 1].name}: #{cards[i + 1].description}
-            """
-        $("div#show-hn-foc button:nth-child(2)")
-            .toggleClass("disabled", i == n)
-            .html "<a href='#'>#{text}</a>"
-        $("div#show-hn-foc button:last")
-            .toggleClass("disabled", i == n)
-        $("div#progress-hn-foc")
-            .css "width", "#{(i + 1) / (n + 1) * 100}%" 
-            .text "#{i + 1} / #{n + 1}" 
+            $("div#upcoming_hn_foc h3").text "#{cards[i + 1].name} (#{i + 2} / #{n})"
+            $("div#upcoming_hn_foc")
+                .toggleClass("hn", cards[i + 1].type.indexOf("hn") > -1)
+            $("div#upcoming_hn_foc")
+                .toggleClass("foc", cards[i + 1].type.indexOf("foc") > -1)
+            factor = 42 / 45
+            width = $("div#upcoming_hn_foc div").width()
+            height = factor * width
+            canvas = $("div#upcoming_hn_foc div canvas")
+            canvas
+                .width width
+                .height height
+            img = new Image()
+            img.src = cards[i + 1].address
+            img.onload = ->
+                context = canvas[0].getContext "2d"
+                context.drawImage img, 12, 24, 42, 45, 0, 0, width, height
+            $("div#upcoming_hn_foc div p").text cards[i + 1].description
+
 
     set_wws = (current_game) ->
         i = current_game.wws_index - 1
