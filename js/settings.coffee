@@ -53,6 +53,7 @@ $ ->
             ]
         }
         basil.set("card_settings", card_settings)
+        basil.remove "current_game"
 
     $('input#n_hn_foc').val card_settings.n_hn_foc
     $('input#n_wws').val card_settings.n_wws

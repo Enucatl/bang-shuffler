@@ -39,92 +39,113 @@ $ ->
             set_wws current_game 
                                             
     hn_foc_previous = ->
-        if $(this).hasClass "disabled"
+        if $("div#current_hn_foc").hasClass "disabled"
             return
         game = basil.get "current_game"
         game.hn_foc_index -= 1
         basil.set "current_game", game 
         set_hn_foc game 
     hn_foc_next = ->
-        if $(this).hasClass "disabled"
+        console.log $(this)
+        if $("div#upcoming_hn_foc").hasClass "disabled"
             return
         game = basil.get "current_game"
         game.hn_foc_index += 1
         basil.set "current_game", game 
         set_hn_foc game 
     wws_previous = ->
-        if $(this).hasClass "disabled"
+        if $("div#current_wws").hasClass "disabled-first"
             return
         game = basil.get "current_game"
         game.wws_index -= 1
         basil.set "current_game", game 
         set_wws game 
     wws_next = ->
-        if $(this).hasClass "disabled"
+        if $("div#current_wws").hasClass "disabled-last"
             return
         game = basil.get "current_game"
         game.wws_index += 1
         basil.set "current_game", game 
         set_wws game 
 
+    draw_card = (id, i, n, card) ->
+        $("#{id} h3").text "#{card.name} (#{i + 1} / #{n})"
+        factor = 42 / 44
+        width = $("#{id} div").width()
+        height = Math.round factor * width 
+        canvas = $("#{id} canvas")
+        canvas
+            .attr "width", width
+            .attr "height", height
+        img = new Image()
+        img.src = card.address
+        img.onload = ->
+            context = canvas[0].getContext "2d"
+            context.drawImage img, 12, 24, 42, 43, 0, 0, width, height
+        $("#{id} p").text card.description
+
+    set_card_class = (id, card) ->
+        $(id).toggleClass("hn", card? and card.type.indexOf("hn") > -1)
+        $(id).toggleClass("foc", card? and card.type.indexOf("foc") > -1)
+        $(id).toggleClass("wws", card? and card.type.indexOf("wws") > -1)
+
+    clear_card = (id, card) ->
+        console.log "clearing", id, card
+        $("#{id} h3").text ""
+        $(id).toggleClass "hn", false 
+        $(id).toggleClass "foc", false
+        canvas = $("#{id} canvas")
+        context = canvas[0].getContext "2d"
+        context.clearRect 0, 0, canvas.width(), canvas.height() 
+        $("#{id} p").text ""
+
     set_hn_foc = (current_game) ->
         i = current_game.hn_foc_index - 1
         cards = current_game.hn_foc_cards
         n = cards.length
+        console.log i, n
         $("div#current_hn_foc")
             .toggleClass("disabled", i < 0)
-        #$("div#current_hn_foc")
-            #.toggleClass("hn", cards[i].type.indexOf("hn") > -1)
-        #$("div#current_hn_foc")
-            #.toggleClass("foc", cards[i].type.indexOf("foc") > -1)
         $("div#upcoming_hn_foc")
             .toggleClass("disabled", i == n - 1)
-        if i == -1
-            $("div#upcoming_hn_foc h3").text "#{cards[i + 1].name} (#{i + 2} / #{n})"
-            $("div#upcoming_hn_foc")
-                .toggleClass("hn", cards[i + 1].type.indexOf("hn") > -1)
-            $("div#upcoming_hn_foc")
-                .toggleClass("foc", cards[i + 1].type.indexOf("foc") > -1)
-            factor = 42 / 45
-            width = $("div#upcoming_hn_foc div").width()
-            height = factor * width
-            canvas = $("div#upcoming_hn_foc div canvas")
-            canvas
-                .width width
-                .height height
-            img = new Image()
-            img.src = cards[i + 1].address
-            img.onload = ->
-                context = canvas[0].getContext "2d"
-                context.drawImage img, 12, 24, 42, 45, 0, 0, width, height
-            $("div#upcoming_hn_foc div p").text cards[i + 1].description
-
+        if i < n - 1
+            draw_card "div#upcoming_hn_foc", i + 1, n, cards[i + 1]
+            set_card_class "div#upcoming_hn_foc", cards[i + 1]
+            if i > -1
+                draw_card "div#current_hn_foc", i, n, cards[i]
+                set_card_class "div#current_hn_foc", cards[i]
+            else
+                clear_card "div#current_hn_foc"
 
     set_wws = (current_game) ->
         i = current_game.wws_index - 1
         cards = current_game.wws_cards
-        n = cards.length - 1
-        $("div#show-wws button:first")
-            .toggleClass("disabled", i < 0)
-        text = if i >= 0 then "#{cards[i].name}" else "&mdash;"
-        tooltip = if i >= 0 then cards[i].description else ""
-        $("div#show-wws button:nth-child(2)")
-            .toggleClass("disabled", i == n)
-            .html "<a href='#'>#{text}</a>"
-        $("div#show-wws button:last")
-            .toggleClass("disabled", i == n)
-        $("div#progress-wws")
-            .css "width", "#{(i + 1) / (n + 1) * 100}%" 
-            .text "#{i + 1} / #{n + 1}" 
+        n = cards.length
+        id = "div#current_wws"
+        $(id).toggleClass("disabled-first", i < 0)
+        $(id).toggleClass("disabled-last", i == n - 1)
+        if i > -1
+            draw_card "div#current_wws", i, n, cards[i]
+            set_card_class "div#current_wws", cards[i]
+            console.log i, cards[i]
+        else
+            clear_card "div#current_wws"
 
     if basil.get("current_game")?
         set_hn_foc basil.get "current_game"
         set_wws basil.get "current_game"
 
     $('button#new_game').click start_new_game
-    $("div#show-hn-foc button:first").click hn_foc_previous
-    $("div#show-hn-foc button:nth-child(2)").click hn_foc_next
-    $("div#show-hn-foc button:last").click hn_foc_next
-    $("div#show-wws button:first").click wws_previous
-    $("div#show-wws button:nth-child(2)").click wws_next
-    $("div#show-wws button:last").click wws_next
+    $("div#current_hn_foc").click hn_foc_previous
+    current_hn_foc_hammer = new Hammer document.getElementById "current_hn_foc"  
+    current_hn_foc_hammer
+        .on "swipeleft tap", hn_foc_previous
+        .on "swiperight", hn_foc_next
+    upcoming_hn_foc_hammer = new Hammer document.getElementById "upcoming_hn_foc"  
+    upcoming_hn_foc_hammer
+        .on "swipeleft", hn_foc_previous
+        .on "swiperight tap", hn_foc_next
+    current_wws_hammer = new Hammer document.getElementById "current_wws"  
+    current_wws_hammer
+        .on "swipeleft", wws_previous
+        .on "swiperight tap", wws_next
