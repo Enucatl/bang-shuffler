@@ -4,21 +4,22 @@
 }
 
 .card {
+    border-color: DarkSlateGrey;
     border-style: solid;
     border-width: thick;
     border-radius: 20px;
 }
 
 .wws {
-    border-color: yellow;
+    border-color: GoldenRod;
 }
 
 .hn {
-    border-color: red;
+    border-color: FireBrick;
 }
 
 .foc {
-    border-color: blue;
+    border-color: DarkBlue;
 }
 
 @media only screen and (max-device-width: 480px) {
