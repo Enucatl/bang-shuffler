@@ -27,8 +27,8 @@ $ ->
         $(id).toggleClass("foc", card? and card.type.indexOf("foc") > -1)
         $(id).toggleClass("wws", card? and card.type.indexOf("wws") > -1)
 
-    window.clear_card = (id, card) ->
-        $("#{id} h3").text ""
+    window.clear_card = (id, title) ->
+        $("#{id} h3").html title
         $(id).toggleClass "hn", false 
         $(id).toggleClass "foc", false
         canvas = $("#{id} canvas")

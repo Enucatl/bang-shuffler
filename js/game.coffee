@@ -78,7 +78,7 @@ $ ->
                 window.draw_card "div#current_hn_foc", i, n, cards[i]
                 window.set_card_class "div#current_hn_foc", cards[i]
             else
-                window.clear_card "div#current_hn_foc"
+                window.clear_card "div#current_hn_foc", "Mezzogiorno di fuoco<br>Per un pugno di carte"
 
     set_wws = (current_game) ->
         i = current_game.wws_index - 1
@@ -91,7 +91,7 @@ $ ->
             window.draw_card "div#current_wws", i, n, cards[i]
             window.set_card_class "div#current_wws", cards[i]
         else
-            window.clear_card "div#current_wws"
+            window.clear_card "div#current_wws", "Wild west show"
 
     if basil.get("current_game")?
         set_hn_foc basil.get "current_game"
