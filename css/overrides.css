@@ -33,3 +33,16 @@
         height: 50vh;
     }
 }
+
+@media (max-width: 1200px) {
+    .container {
+      padding:0;
+      margin:0;
+      width:100%;
+    }
+
+    body {
+      padding:0;
+      margin:0;
+    }
+}
