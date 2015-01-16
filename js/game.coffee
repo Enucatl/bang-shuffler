@@ -46,7 +46,6 @@ $ ->
         basil.set "current_game", game 
         set_hn_foc game 
     hn_foc_next = ->
-        console.log $(this)
         if $("div#upcoming_hn_foc").hasClass "disabled"
             return
         game = basil.get "current_game"
@@ -90,7 +89,6 @@ $ ->
         $(id).toggleClass("wws", card? and card.type.indexOf("wws") > -1)
 
     clear_card = (id, card) ->
-        console.log "clearing", id, card
         $("#{id} h3").text ""
         $(id).toggleClass "hn", false 
         $(id).toggleClass "foc", false
@@ -103,7 +101,6 @@ $ ->
         i = current_game.hn_foc_index - 1
         cards = current_game.hn_foc_cards
         n = cards.length
-        console.log i, n
         $("div#current_hn_foc")
             .toggleClass("disabled", i < 0)
         $("div#upcoming_hn_foc")
@@ -127,7 +124,6 @@ $ ->
         if i > -1
             draw_card "div#current_wws", i, n, cards[i]
             set_card_class "div#current_wws", cards[i]
-            console.log i, cards[i]
         else
             clear_card "div#current_wws"
 
@@ -136,7 +132,6 @@ $ ->
         set_wws basil.get "current_game"
 
     $('button#new_game').click start_new_game
-    $("div#current_hn_foc").click hn_foc_previous
     current_hn_foc_hammer = new Hammer document.getElementById "current_hn_foc"  
     current_hn_foc_hammer
         .on "swipeleft tap", hn_foc_previous
