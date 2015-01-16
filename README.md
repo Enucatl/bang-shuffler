@@ -14,3 +14,5 @@ Features
 * fits laptops, mobile phones and tablets
 * it permanently remembers the current game and your settings through [HTML5 localStorage](http://www.w3schools.com/html/html5_webstorage.asp) and
  [basil.js](http://wisembly.github.io/basil.js/)
+
+v2.0.0
