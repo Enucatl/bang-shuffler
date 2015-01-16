@@ -1,40 +1,40 @@
-name,description,type
-Bart Cassidy,"Quando perde un punto vita, pesca una carta dal mazzo.",basic
-Black Jack,"Quando deve pescare le 2 carte, mostra a tutti la seconda. Se è di cuori o di quadri, ne pesca un'altra.",basic
-Calamity Janet,Bang! e Mancato! sono intercambiabili.,basic
-Jesse Jones,"Quando deve pescare le 2 carte, può pescare la prima dalla mano di un qualunque avversario.",basic
-Jourdonnais,"Ogni volta che è bersaglio di una carta Bang!, può estrarre una carta dal tallone, se è cuori, è mancato",basic
-Kit Carlson,"Quando deve pescare le 2 carte, ne pesca 3, e rimette una a scelta in cima al tallone.",basic
-Lucky Duke,Quando deve estrarre una carta ne estrae due,basic
-Paul Regret,Gli altri giocatori lo vedono a distanza aumentata di 1,basic
-Pedro Ramirez,"Quando pesca due carte, può pescare la prima dalla cima di quelle scartate",basic
-Rose Doolan,Vede gli altri giocatori a distanza diminuita di 1,basic
-Sid Ketchum,Può scartare 2 carte per recuperare 1 punto vita in ogni momento,basic
-Slab the Killer,"Quando usa la carta Bang!, sono necessari 2 Mancato! per evitare il colpo",basic
-Suzy Lafayette,"Se rimane senza carte in mano, può pescarne una dal tallone",basic
-Vulture Sam,"Quando un giocatore muore, prende in mano tutte le sue carte",basic
-Willy the Kid,Può usare un numero qualunque di Bang! in un turno,basic
-Apache Kid,Le carte di quadri giocate su di lui non hanno effetto,dc
-Belle Star,Nel suo turno le carte blu e verdi degli avversari non hanno effetto,dc
-Bill Noface,"Pesca, invece che 2 carte, 1 più 1 ogni suo punto ferita",dc
-Chuck Wengam,Nel suo turno può perdere 1 punto vita per pescare due carte,dc
-Doc Holyday,Una volta per turno può scartare due carte per sparare un Bang!,dc
-Elena Fuente,Può usare una carta qualunque come Mancato!,dc
-Greg Digger,Quando un personaggio è eliminato recupera due punti vita,dc
-Herb Hunter,Quando un personaggio è eliminato pesca 2 carte,dc
-José Delgado,Due volte per turno può scartare una carta blu per pescare due carte (Nella prima edizione poteva utilizzare la sua abilità solo una volta per turno),dc
-Molly Stark,Quando usa una carta fuori turno pesca un'altra carta,dc
-Pat Brennan,Invece di pescare può prendere una carta in gioco di fronte a un giocatore,dc
-Pixie Pete,Pesca 3 carte invece di 2,dc
-Sean Mallory,Può tenere fino a 10 carte in mano,dc
-Tequila Joe,Quando gioca una birra recupera 2 punti vita,dc
-Vera Custer,Ogni giro acquisisce l'abilità di un giocatore in gioco a sua scelta,dc
-Big Spencer,Inizia con 5 carte. Non può giocare Mancato!,wws
-Flint Westwood,Nel suo turno può scambiare una carta dalla mano con 2 carte a caso dalla mano di un altro giocatore.,wws
-Gary Looter,Pesca tutte le carte in eccesso scartate dagli altri giocatori a fine turno,wws
-Greygory Deck,All'inizio del suo turno può pescare 2 personaggi a caso. Ha tutte le abilità dei personaggi pescati. Le carte personaggi da cui pescare sono solo quelli dell'edizione base.,wws
-John Pain,"Se ha meno di 6 carte in mano, quando un giocatore estrae, John aggiunge alla mano la carta appena estratta.",wws
-Lee Van Kliff,"Nel suo turno, può scartare un BANG! per ripetere l'effetto di una carta a bordo marrone che ha appena giocato.",wws
-Teren Kill,"Ogni volta che sarebbe eliminato estrae: se non è Picche, resta a 1 punto vita e pesca 1 carta.",wws
-Youl Grinner,"Prima di pescare, i giocatori con più carte in mano di lui devono dargli una carta a scelta.",wws
-Madam Yto,Pesca una carta dal mazzo non appena viene giocata una birra.,gr
+name,description,type,address
+Bart Cassidy,"Quando perde un punto vita, pesca una carta dal mazzo.",basic,http://www.emilianosciarra.net/images/stories/carte/p024_4_02_11.jpg
+Black Jack,"Quando deve pescare le 2 carte, mostra a tutti la seconda. Se è di cuori o di quadri, ne pesca un'altra.",basic,http://www.emilianosciarra.net/images/stories/carte/p024_4_02_51.jpg
+Calamity Janet,Bang! e Mancato! sono intercambiabili.,basic,http://www.emilianosciarra.net/images/stories/carte/p024_4_02_91.jpg
+Jesse Jones,"Quando deve pescare le 2 carte, può pescare la prima dalla mano di un qualunque avversario.",basic,http://www.emilianosciarra.net/images/stories/carte/p024_4_02_131.jpg
+Jourdonnais,"Ogni volta che è bersaglio di una carta Bang!, può estrarre una carta dal tallone, se è cuori, è mancato",basic,http://www.emilianosciarra.net/images/stories/carte/p024_4_02_171.jpg
+Kit Carlson,"Quando deve pescare le 2 carte, ne pesca 3, e rimette una a scelta in cima al tallone.",basic,http://www.emilianosciarra.net/images/stories/carte/p024_4_02_211.jpg
+Lucky Duke,Quando deve estrarre una carta ne estrae due,basic,http://www.emilianosciarra.net/images/stories/carte/p024_4_02_251.jpg
+Paul Regret,Gli altri giocatori lo vedono a distanza aumentata di 1,basic,http://www.emilianosciarra.net/images/stories/carte/p024_4_02_291.jpg
+Pedro Ramirez,"Quando pesca due carte, può pescare la prima dalla cima di quelle scartate",basic,http://www.emilianosciarra.net/images/stories/carte/p024_4_02_331.jpg
+Rose Doolan,Vede gli altri giocatori a distanza diminuita di 1,basic,http://www.emilianosciarra.net/images/stories/carte/p024_4_02_371.jpg
+Sid Ketchum,Può scartare 2 carte per recuperare 1 punto vita in ogni momento,basic,http://www.emilianosciarra.net/images/stories/carte/p024_4_02_411.jpg
+Slab the Killer,"Quando usa la carta Bang!, sono necessari 2 Mancato! per evitare il colpo",basic,http://www.emilianosciarra.net/images/stories/carte/p024_4_02_451.jpg
+Suzy Lafayette,"Se rimane senza carte in mano, può pescarne una dal tallone",basic,http://www.emilianosciarra.net/images/stories/carte/p024_4_02_491.jpg
+Vulture Sam,"Quando un giocatore muore, prende in mano tutte le sue carte",basic,http://www.emilianosciarra.net/images/stories/carte/p024_4_02_531.jpg
+Willy the Kid,Può usare un numero qualunque di Bang! in un turno,basic,http://www.emilianosciarra.net/images/stories/carte/p024_4_02_571.jpg
+Apache Kid,Le carte di quadri giocate su di lui non hanno effetto,dc,http://www.emilianosciarra.net/images/stories/carte/p024_4_00_11.jpg
+Belle Star,Nel suo turno le carte blu e verdi degli avversari non hanno effetto,dc,http://www.emilianosciarra.net/images/stories/carte/p024_4_00_11.jpg
+Bill Noface,"Pesca, invece che 2 carte, 1 più 1 ogni suo punto ferita",dc,http://www.emilianosciarra.net/images/stories/carte/p024_4_00_11.jpg
+Chuck Wengam,Nel suo turno può perdere 1 punto vita per pescare due carte,dc,http://www.emilianosciarra.net/images/stories/carte/p024_4_00_51.jpg
+Doc Holyday,Una volta per turno può scartare due carte per sparare un Bang!,dc,http://www.emilianosciarra.net/images/stories/carte/p024_4_00_91.jpg
+Elena Fuente,Può usare una carta qualunque come Mancato!,dc,http://www.emilianosciarra.net/images/stories/carte/p024_4_00_131.jpg
+Greg Digger,Quando un personaggio è eliminato recupera due punti vita,dc,http://www.emilianosciarra.net/images/stories/carte/p024_4_00_171.jpg
+Herb Hunter,Quando un personaggio è eliminato pesca 2 carte,dc,http://www.emilianosciarra.net/images/stories/carte/p024_4_00_211.jpg
+José Delgado,Due volte per turno può scartare una carta blu per pescare due carte (Nella prima edizione poteva utilizzare la sua abilità solo una volta per turno),dc,http://www.emilianosciarra.net/images/stories/carte/p024_4_00_251.jpg
+Molly Stark,Quando usa una carta fuori turno pesca un'altra carta,dc,http://www.emilianosciarra.net/images/stories/carte/p024_4_00_291.jpg
+Pat Brennan,Invece di pescare può prendere una carta in gioco di fronte a un giocatore,dc,http://www.emilianosciarra.net/images/stories/carte/p024_4_00_331.jpg
+Pixie Pete,Pesca 3 carte invece di 2,dc,http://www.emilianosciarra.net/images/stories/carte/p024_4_00_371.jpg
+Sean Mallory,Può tenere fino a 10 carte in mano,dc,http://www.emilianosciarra.net/images/stories/carte/p024_4_00_411.jpg
+Tequila Joe,Quando gioca una birra recupera 2 punti vita,dc,http://www.emilianosciarra.net/images/stories/carte/p024_4_00_451.jpg
+Vera Custer,Ogni giro acquisisce l'abilità di un giocatore in gioco a sua scelta,dc,http://www.emilianosciarra.net/images/stories/carte/p024_4_00_491.jpg
+Big Spencer,Inizia con 5 carte. Non può giocare Mancato!,wws,http://www.emilianosciarra.net/images/stories/carte/p024_4_01_11.jpg
+Flint Westwood,Nel suo turno può scambiare una carta dalla mano con 2 carte a caso dalla mano di un altro giocatore.,wws,http://www.emilianosciarra.net/images/stories/carte/p024_4_01_51.jpg
+Gary Looter,Pesca tutte le carte in eccesso scartate dagli altri giocatori a fine turno,wws,http://www.emilianosciarra.net/images/stories/carte/p024_4_01_91.jpg
+Greygory Deck,All'inizio del suo turno può pescare 2 personaggi a caso. Ha tutte le abilità dei personaggi pescati. Le carte personaggi da cui pescare sono solo quelli dell'edizione base.,wws,http://www.emilianosciarra.net/images/stories/carte/p024_4_01_131.jpg
+John Pain,"Se ha meno di 6 carte in mano, quando un giocatore estrae, John aggiunge alla mano la carta appena estratta.",wws,http://www.emilianosciarra.net/images/stories/carte/p024_4_01_171.jpg
+Lee Van Kliff,"Nel suo turno, può scartare un BANG! per ripetere l'effetto di una carta a bordo marrone che ha appena giocato.",wws,http://www.emilianosciarra.net/images/stories/carte/p024_4_01_211.jpg
+Teren Kill,"Ogni volta che sarebbe eliminato estrae: se non è Picche, resta a 1 punto vita e pesca 1 carta.",wws,http://www.emilianosciarra.net/images/stories/carte/p024_4_01_251.jpg
+Youl Grinner,"Prima di pescare, i giocatori con più carte in mano di lui devono dargli una carta a scelta.",wws,http://www.emilianosciarra.net/images/stories/carte/p024_4_01_291.jpg
+Madam Yto,Pesca una carta dal mazzo non appena viene giocata una birra.,gr,http://www.emilianosciarra.net/images/stories/carte/MadamYto.jpg
