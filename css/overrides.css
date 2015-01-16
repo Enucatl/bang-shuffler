@@ -22,13 +22,13 @@
     border-color: DarkBlue;
 }
 
-@media only screen and (max-device-width: 480px) {
+@media only screen and (max-device-height: 600px) {
     .card {
         height: 100vh;
     }
 }
 
-@media only screen and (min-device-width: 480px) {
+@media only screen and (min-device-height: 600px) {
     .card {
         height: 50vh;
     }
