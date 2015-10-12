@@ -100,13 +100,13 @@ $ ->
     $('button#new_game').click start_new_game
     current_hn_foc_hammer = new Hammer document.getElementById "current_hn_foc"  
     current_hn_foc_hammer
-        .on "swipeleft tap", hn_foc_previous
-        .on "swiperight", hn_foc_next
+        .on "swiperight tap", hn_foc_previous
+        .on "swipeleft", hn_foc_next
     upcoming_hn_foc_hammer = new Hammer document.getElementById "upcoming_hn_foc"  
     upcoming_hn_foc_hammer
-        .on "swipeleft", hn_foc_previous
-        .on "swiperight tap", hn_foc_next
+        .on "swiperight", hn_foc_previous
+        .on "swipeleft tap", hn_foc_next
     current_wws_hammer = new Hammer document.getElementById "current_wws"  
     current_wws_hammer
-        .on "swipeleft", wws_previous
-        .on "swiperight tap", wws_next
+        .on "swiperight", wws_previous
+        .on "swipeleft tap", wws_next
